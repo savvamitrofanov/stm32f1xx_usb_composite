@@ -45,8 +45,8 @@
             <NotGenerated>0</NotGenerated>
             <InvalidFlash>1</InvalidFlash>
           </TargetStatus>
-          <OutputDirectory>.\STM3210B-EVAL\</OutputDirectory>
-          <OutputName>STM3210B-EVAL</OutputName>
+          <OutputDirectory>.\stm32f103rb\</OutputDirectory>
+          <OutputName>stm32f103</OutputName>
           <CreateExecutable>1</CreateExecutable>
           <CreateLib>0</CreateLib>
           <CreateHexFile>1</CreateHexFile>
@@ -371,7 +371,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER, STM32F10X_MD,  HSE_VALUE=8000000</Define>
               <Undefine></Undefine>
-              <IncludePath>..\inc;..\Libraries\CMSIS\Device\ST\STM32F10x\Include;..\Libraries\STM32_USB-FS-Device_Driver\inc;..\Libraries\STM32F10x_StdPeriph_Driver\inc</IncludePath>
+              <IncludePath>..\inc;..\Libraries\CMSIS\CM3\CoreSupport;..\Libraries\STM32_USB-FS-Device_Driver\inc;..\Libraries\STM32F10x_StdPeriph_Driver\inc</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -460,11 +460,6 @@
               <FilePath>..\src\stm32_it.c</FilePath>
             </File>
             <File>
-              <FileName>mass_mal.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\src\mass_mal.c</FilePath>
-            </File>
-            <File>
               <FileName>memory.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src\memory.c</FilePath>
@@ -484,6 +479,11 @@
               <FileType>1</FileType>
               <FilePath>..\src\scsi_data.c</FilePath>
             </File>
+            <File>
+              <FileName>mass_diskio.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\src\mass_diskio.c</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -493,11 +493,6 @@
               <FileName>system_stm32f10x.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\src\system_stm32f10x.c</FilePath>
-            </File>
-            <File>
-              <FileName>startup_stm32f10x_md.s</FileName>
-              <FileType>2</FileType>
-              <FilePath>..\Libraries\CMSIS\Device\ST\STM32F10x\Source\Templates\arm\startup_stm32f10x_md.s</FilePath>
             </File>
           </Files>
         </Group>
@@ -565,11 +560,6 @@
               <FilePath>..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_exti.c</FilePath>
             </File>
             <File>
-              <FileName>stm32f10x_flash.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_flash.c</FilePath>
-            </File>
-            <File>
               <FileName>stm32f10x_usart.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_usart.c</FilePath>
@@ -593,6 +583,11 @@
               <FileName>stm32f10x_fsmc.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\Libraries\STM32F10x_StdPeriph_Driver\src\stm32f10x_fsmc.c</FilePath>
+            </File>
+            <File>
+              <FileName>startup_stm32f10x_md.s</FileName>
+              <FileType>2</FileType>
+              <FilePath>..\Libraries\CMSIS\CM3\DeviceSupport\ST\STM32F10x\startup\arm\startup_stm32f10x_md.s</FilePath>
             </File>
           </Files>
         </Group>
