@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
+  * Unless required by applicable law or agreed to in writing, software 
+  * distributed under the License is distributed on an "AS IS" BASIS, 
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -46,7 +46,7 @@
 
 #define Composite_SIZ_DEVICE_DESC               18
 #define Composite_SIZ_CONFIG_DESC               64
-#define CUSTOMHID_SIZ_REPORT_DESC               79
+#define CUSTOMHID_SIZ_REPORT_DESC               143
 #define Composite_SIZ_STRING_LANGID             4
 #define Composite_SIZ_STRING_VENDOR             38
 #define Composite_SIZ_STRING_PRODUCT            48

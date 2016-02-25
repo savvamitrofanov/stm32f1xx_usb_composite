@@ -46,7 +46,7 @@ void send_hid_data(uint8_t data)
 
     /*hid out example*/
     /* Write the descriptor through the endpoint */
-    USB_SIL_Write(EP1_IN, (uint8_t *) Report_Buf, sizeof(64));
+    USB_SIL_Write(EP1_IN, (uint8_t *) Report_Buf, sizeof(2));
     SetEPTxValid(ENDP1);
 }
 
@@ -62,19 +62,18 @@ int main(void)
     uint16_t cnt = 0;
 
 
-	Set_System();
+    Set_System();
 
-	USB_Interrupts_Config();
+    USB_Interrupts_Config();
 
-	Set_USBClock();
+    Set_USBClock();
 
-	USB_Init();
+    USB_Init();
 
-
-	while (1) {
-            send_hid_data(cnt++);
-            Delay(100000);
-	}
+    while (1) {
+        send_hid_data(cnt++);
+        Delay(100000);
+    }
 }
 
 /*******************************************************************************

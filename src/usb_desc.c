@@ -16,8 +16,8 @@
   *
   *        http://www.st.com/software_license_agreement_liberty_v2
   *
-  * Unless required by applicable law or agreed to in writing, software
-  * distributed under the License is distributed on an "AS IS" BASIS,
+  * Unless required by applicable law or agreed to in writing, software 
+  * distributed under the License is distributed on an "AS IS" BASIS, 
   * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
   * See the License for the specific language governing permissions and
   * limitations under the License.
@@ -108,7 +108,7 @@ const uint8_t Composite_ConfigDescriptor[Composite_SIZ_CONFIG_DESC] = {
 
 	0x81,			/* bEndpointAddress: Endpoint Address (IN) */
 	0x03,			/* bmAttributes: Interrupt endpoint */
-	0x40,			/* wMaxPacketSize: 2 Bytes max */
+	0x02,			/* wMaxPacketSize: 2 Bytes max */
 	0x00,
 	0x20,			/* bInterval: Polling Interval (32 ms) */
 	/* 34 */
@@ -153,51 +153,108 @@ const uint8_t Composite_ConfigDescriptor[Composite_SIZ_CONFIG_DESC] = {
 	0x00			/*Polling interval in milliseconds */
 	    /*32 */
 };				/* Composite_ConfigDescriptor */
-#define RPT3_COUNT 63
-#define RPT4_COUNT 63
+
 const uint8_t CustomHID_ReportDescriptor[CUSTOMHID_SIZ_REPORT_DESC] = {
-    0x06, 0x00, 0xff,              // USAGE_PAGE (Generic Desktop)
-    0x09, 0x01,                    // USAGE (Vendor Usage 1)
-    0xa1, 0x01,                    // COLLECTION (Application)
-    0x85, 0x01,                    //   REPORT_ID (1)
-    0x09, 0x01,                    //   USAGE (Vendor Usage 1)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x95, 0x01,                    //   REPORT_COUNT (1)
-    0xb1, 0x82,                    //   FEATURE (Data,Var,Abs,Vol)
-    0x85, 0x01,                    //   REPORT_ID (1)
-    0x09, 0x01,                    //   USAGE (Vendor Usage 1)
-    0x91, 0x82,                    //   OUTPUT (Data,Var,Abs,Vol)
+	0x06, 0xFF, 0x00,	/* USAGE_PAGE (Vendor Page: 0xFF00) */
+	0x09, 0x01,		/* USAGE (Demo Kit)               */
+	0xa1, 0x01,		/* COLLECTION (Application)       */
+	/* 6 */
 
-    0x85, 0x02,                    //   REPORT_ID (2)
-    0x09, 0x02,                    //   USAGE (Vendor Usage 2)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x25, 0x01,                    //   LOGICAL_MAXIMUM (1)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x95, 0x01,                    //   REPORT_COUNT (1)
-    0xb1, 0x82,                    //   FEATURE (Data,Var,Abs,Vol)
-    0x85, 0x02,                    //   REPORT_ID (2)
-    0x09, 0x02,                    //   USAGE (Vendor Usage 2)
-    0x91, 0x82,                    //   OUTPUT (Data,Var,Abs,Vol)
+	/* Led 1 */
+	0x85, 0x01,		/*     REPORT_ID (1)              */
+	0x09, 0x01,		/*     USAGE (LED 1)              */
+	0x15, 0x00,		/*     LOGICAL_MINIMUM (0)        */
+	0x25, 0x01,		/*     LOGICAL_MAXIMUM (1)        */
+	0x75, 0x08,		/*     REPORT_SIZE (8)            */
+	0x95, 0x01,		/*     REPORT_COUNT (1)           */
+	0xB1, 0x82,		/*    FEATURE (Data,Var,Abs,Vol) */
 
-    0x85, 0x03,                    //   REPORT_ID (3)
-    0x09, 0x03,                    //   USAGE (Vendor Usage 3)
-    0x15, 0x00,                    //   LOGICAL_MINIMUM (0)
-    0x26, 0xff, 0x00,              //   LOGICAL_MAXIMUM (255)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x95, RPT3_COUNT,                    //   REPORT_COUNT (N)
-    0xb1, 0x82,                    //   FEATURE (Data,Var,Abs,Vol)
-    0x85, 0x03,                    //   REPORT_ID (3)
-    0x09, 0x03,                    //   USAGE (Vendor Usage 3)
-    0x91, 0x82,                    //   OUTPUT (Data,Var,Abs,Vol)
+	0x85, 0x01,		/*     REPORT_ID (1)              */
+	0x09, 0x01,		/*     USAGE (LED 1)              */
+	0x91, 0x82,		/*     OUTPUT (Data,Var,Abs,Vol)  */
+	/* 26 */
 
-    0x85, 0x04,                    //   REPORT_ID (4)
-    0x09, 0x04,                    //   USAGE (Vendor Usage 4)
-    0x75, 0x08,                    //   REPORT_SIZE (8)
-    0x95, RPT4_COUNT,                    //   REPORT_COUNT (N)
-    0x81, 0x82,                    //   INPUT (Data,Var,Abs,Vol)
-    0xc0                           // END_COLLECTION
+	/* Led 2 */
+	0x85, 0x02,		/*     REPORT_ID 2                */
+	0x09, 0x02,		/*     USAGE (LED 2)              */
+	0x15, 0x00,		/*     LOGICAL_MINIMUM (0)        */
+	0x25, 0x01,		/*     LOGICAL_MAXIMUM (1)        */
+	0x75, 0x08,		/*     REPORT_SIZE (8)            */
+	0x95, 0x01,		/*     REPORT_COUNT (1)           */
+	0xB1, 0x82,		/*    FEATURE (Data,Var,Abs,Vol) */
+
+	0x85, 0x02,		/*     REPORT_ID (2)              */
+	0x09, 0x02,		/*     USAGE (LED 2)              */
+	0x91, 0x82,		/*     OUTPUT (Data,Var,Abs,Vol)  */
+	/* 46 */
+
+	/* Led 3 */
+	0x85, 0x03,		/*     REPORT_ID (3)              */
+	0x09, 0x03,		/*     USAGE (LED 3)              */
+	0x15, 0x00,		/*     LOGICAL_MINIMUM (0)        */
+	0x25, 0x01,		/*     LOGICAL_MAXIMUM (1)        */
+	0x75, 0x08,		/*     REPORT_SIZE (8)            */
+	0x95, 0x01,		/*     REPORT_COUNT (1)           */
+	0xB1, 0x82,		/*    FEATURE (Data,Var,Abs,Vol) */
+
+	0x85, 0x03,		/*     REPORT_ID (3)              */
+	0x09, 0x03,		/*     USAGE (LED 3)              */
+	0x91, 0x82,		/*     OUTPUT (Data,Var,Abs,Vol)  */
+	/* 66 */
+
+	/* key Push Button */
+	0x85, 0x05,		/*     REPORT_ID (5)              */
+	0x09, 0x05,		/*     USAGE (Push Button)        */
+	0x15, 0x00,		/*     LOGICAL_MINIMUM (0)        */
+	0x25, 0x01,		/*     LOGICAL_MAXIMUM (1)        */
+	0x75, 0x01,		/*     REPORT_SIZE (1)            */
+	0x81, 0x82,		/*     INPUT (Data,Var,Abs,Vol)   */
+
+	0x09, 0x05,		/*     USAGE (Push Button)        */
+	0x75, 0x01,		/*     REPORT_SIZE (1)            */
+	0xb1, 0x82,		/*     FEATURE (Data,Var,Abs,Vol) */
+
+	0x75, 0x07,		/*     REPORT_SIZE (7)            */
+	0x81, 0x83,		/*     INPUT (Cnst,Var,Abs,Vol)   */
+	0x85, 0x05,		/*     REPORT_ID (2)              */
+
+	0x75, 0x07,		/*     REPORT_SIZE (7)            */
+	0xb1, 0x83,		/*     FEATURE (Cnst,Var,Abs,Vol) */
+	/* 94 */
+
+	/* Tamper Push Button */
+	0x85, 0x06,		/*     REPORT_ID (6)              */
+	0x09, 0x06,		/*     USAGE (Tamper Push Button) */
+	0x15, 0x00,		/*     LOGICAL_MINIMUM (0)        */
+	0x25, 0x01,		/*     LOGICAL_MAXIMUM (1)        */
+	0x75, 0x01,		/*     REPORT_SIZE (1)            */
+	0x81, 0x82,		/*     INPUT (Data,Var,Abs,Vol)   */
+
+	0x09, 0x06,		/*     USAGE (Tamper Push Button) */
+	0x75, 0x01,		/*     REPORT_SIZE (1)            */
+	0xb1, 0x82,		/*     FEATURE (Data,Var,Abs,Vol) */
+
+	0x75, 0x07,		/*     REPORT_SIZE (7)            */
+	0x81, 0x83,		/*     INPUT (Cnst,Var,Abs,Vol)   */
+	0x85, 0x06,		/*     REPORT_ID (6)              */
+
+	0x75, 0x07,		/*     REPORT_SIZE (7)            */
+	0xb1, 0x83,		/*     FEATURE (Cnst,Var,Abs,Vol) */
+	/* 122 */
+
+	/* ADC IN */
+	0x85, 0x07,		/*     REPORT_ID (7)              */
+	0x09, 0x07,		/*     USAGE (ADC IN)             */
+	0x15, 0x00,		/*     LOGICAL_MINIMUM (0)        */
+	0x26, 0xff, 0x00,	/*     LOGICAL_MAXIMUM (255)      */
+	0x75, 0x08,		/*     REPORT_SIZE (8)            */
+	0x81, 0x82,		/*     INPUT (Data,Var,Abs,Vol)   */
+	0x85, 0x07,		/*     REPORT_ID (7)              */
+	0x09, 0x07,		/*     USAGE (ADC in)             */
+	0xb1, 0x82,		/*     FEATURE (Data,Var,Abs,Vol) */
+	/* 141 */
+
+	0xc0			/*     END_COLLECTION              */
 };				/* CustomHID_ReportDescriptor */
 
 /* USB String Descriptors (optional) */
